@@ -13,15 +13,35 @@ public class HoaDon {
     private String maNguoiMua;
     private String maSach;
     private String ngayMua;
+    private int soLuongMua;
+    private int thanhTien;
+
+    public int getSoLuongMua() {
+        return soLuongMua;
+    }
+
+    public void setSoLuongMua(int soLuongMua) {
+        this.soLuongMua = soLuongMua;
+    }
+
+    public int getThanhTien() {
+        return thanhTien;
+    }
+
+    public void setThanhTien(int thanhTien) {
+        this.thanhTien = thanhTien;
+    }
 
     public HoaDon() {
     }
 
-    public HoaDon(String maHoaDon, String maNguoiMua, String maSach, String ngayMua) {
+    public HoaDon(String maHoaDon, String maNguoiMua, String maSach, String ngayMua, int soLuongMua, int thanhTien) {
         this.maHoaDon = maHoaDon;
         this.maNguoiMua = maNguoiMua;
         this.maSach = maSach;
         this.ngayMua = ngayMua;
+        this.soLuongMua = soLuongMua;
+        this.thanhTien = thanhTien;
     }
 
     public String getMaHoaDon() {

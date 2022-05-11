@@ -14,9 +14,29 @@ public class Sach {
     private String nhaXuatBan;
     private String tacGia;
     private int soLuongCon;
+    private int donGia;
     private String tinhTrang;
 
+    public Sach(String maSach, String tenSach, String nhaXuatBan, String tacGia, int soLuongCon, int donGia, String tinhTrang) {
+        this.maSach = maSach;
+        this.tenSach = tenSach;
+        this.nhaXuatBan = nhaXuatBan;
+        this.tacGia = tacGia;
+        this.soLuongCon = soLuongCon;
+        this.donGia = donGia;
+        this.tinhTrang = tinhTrang;
+    }
+    
+
     public Sach() {
+    }
+
+    public int getDonGia() {
+        return donGia;
+    }
+
+    public void setDonGia(int donGia) {
+        this.donGia = donGia;
     }
 
     public int getSoLuongCon() {
@@ -35,12 +55,6 @@ public class Sach {
         this.tinhTrang = tinhTrang;
     }
 
-    public Sach(String maSach, String tenSach, String nhaXuatBan, String tacGia) {
-        this.maSach = maSach;
-        this.tenSach = tenSach;
-        this.nhaXuatBan = nhaXuatBan;
-        this.tacGia = tacGia;
-    }
 
     public String getMaSach() {
         return maSach;
