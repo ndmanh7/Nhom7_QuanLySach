@@ -11,16 +11,16 @@ package CSDL;
 public class Sach {
     private String maSach;
     private String tenSach;
-    private String nhaXuatBan;
+    private String theLoai;
     private String tacGia;
     private int soLuongCon;
     private int donGia;
     private String tinhTrang;
 
-    public Sach(String maSach, String tenSach, String nhaXuatBan, String tacGia, int soLuongCon, int donGia, String tinhTrang) {
+    public Sach(String maSach, String tenSach, String theLoai, String tacGia, int soLuongCon, int donGia, String tinhTrang) {
         this.maSach = maSach;
         this.tenSach = tenSach;
-        this.nhaXuatBan = nhaXuatBan;
+        this.theLoai = theLoai;
         this.tacGia = tacGia;
         this.soLuongCon = soLuongCon;
         this.donGia = donGia;
@@ -72,12 +72,12 @@ public class Sach {
         this.tenSach = tenSach;
     }
 
-    public String getNhaXuatBan() {
-        return nhaXuatBan;
+    public String getTheLoai() {
+        return theLoai;
     }
 
-    public void setNhaXuatBan(String nhaXuatBan) {
-        this.nhaXuatBan = nhaXuatBan;
+    public void setTheLoai(String theLoai) {
+        this.theLoai = theLoai;
     }
 
     public String getTacGia() {

@@ -5,8 +5,10 @@
 package CSDL;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 
@@ -32,12 +34,12 @@ public class DataIO {
 			String parts[] = line.split(";");
 			String maSach = parts[0];
                         String tenSach = parts[1];
-                        String nhaXuatBan = parts[2];
+                        String theLoai = parts[2];
                         String tacGia = parts[3];
                         int soLuongCon = Integer.parseInt(parts[4]);
                         int donGia = Integer.parseInt(parts[5]);
-                        String tinhTrang = parts[5];
-			Sach sach = new Sach(maSach,tenSach,nhaXuatBan,tacGia,soLuongCon,donGia,tinhTrang);
+                        String tinhTrang = parts[6];
+			Sach sach = new Sach(maSach,tenSach,theLoai,tacGia,soLuongCon,donGia,tinhTrang);
                         dsSach.add(sach);
 			}
 		} catch (Exception e) {
@@ -51,6 +53,35 @@ public class DataIO {
 		}
     }
     
+    public static void writeSach(){
+        FileWriter fwriter = null;
+	BufferedWriter buffer = null;
+		
+	File file = new File("src\\sach.txt");
+		
+	try {
+		fwriter= new FileWriter(file);
+		buffer = new BufferedWriter(fwriter);
+		String line;
+		for (int i = 0; i < dsSach.size(); i++) {
+                Sach sach = dsSach.get(i);
+                line = sach.getMaSach()+";"+sach.getTenSach()+";"+sach.getTheLoai()
+                        +";"+sach.getTacGia()+";"+sach.getSoLuongCon()+";"
+                        +sach.getDonGia()+";"+sach.getTinhTrang();
+                
+                buffer.write(line);
+                buffer.newLine();
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(buffer != null)	buffer.close();
+				if(fwriter != null) fwriter.close();
+			} catch (Exception e2) {
+			}
+		}
+    }
     
     public static void loadNguoiMua(){
         FileReader freader = null;
@@ -81,6 +112,35 @@ public class DataIO {
 			try {
 				if(buffer != null)	buffer.close();
 				if(freader != null) freader.close();
+			} catch (Exception e2) {
+			}
+		}
+    }
+    
+    public static void writeNguoiMua(){
+        FileWriter fwriter = null;
+	BufferedWriter buffer = null;
+		
+	File file = new File("src\\nguoimua.txt");
+		
+	try {
+		fwriter= new FileWriter(file);
+		buffer = new BufferedWriter(fwriter);
+		String line;
+		for (int i = 0; i < dsNguoiMua.size(); i++) {
+                NguoiMua nguoiMua = dsNguoiMua.get(i);
+                line = nguoiMua.getMaNguoiMua()+";"+nguoiMua.getTenNguoiMua()+";"+nguoiMua.getTaiKhoan()+";"+
+                        nguoiMua.getSoDienThoai()+";"+nguoiMua.getDiaChi()+";"+nguoiMua.getEmail();
+                
+                buffer.write(line);
+                buffer.newLine();
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(buffer != null)	buffer.close();
+				if(fwriter != null) fwriter.close();
 			} catch (Exception e2) {
 			}
 		}
@@ -120,6 +180,36 @@ public class DataIO {
 		}
     }
     
+    public static void writeHoaDon(){
+        FileWriter fwriter = null;
+	BufferedWriter buffer = null;
+		
+	File file = new File("src\\hoadon.txt");
+		
+	try {
+		fwriter= new FileWriter(file);
+		buffer = new BufferedWriter(fwriter);
+		String line;
+		for (int i = 0; i < dsHoaDon.size(); i++) {
+                HoaDon hoaDon = dsHoaDon.get(i);
+                line = hoaDon.getMaHoaDon()+";"+hoaDon.getMaNguoiMua()+";"+hoaDon.getMaSach()+";"+
+                        hoaDon.getNgayMua()+";"+hoaDon.getSoLuongMua()+";"+hoaDon.getThanhTien();
+                
+                buffer.write(line);
+                buffer.newLine();
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(buffer != null)	buffer.close();
+				if(fwriter != null) fwriter.close();
+			} catch (Exception e2) {
+			}
+		}
+    }
+    
+    
     public static void loadNhanVien(){
         FileReader freader = null;
 	BufferedReader buffer = null;
@@ -148,6 +238,35 @@ public class DataIO {
 			try {
 				if(buffer != null)	buffer.close();
 				if(freader != null) freader.close();
+			} catch (Exception e2) {
+			}
+		}
+    }
+    
+    public static void writeNNhanVien(){
+        FileWriter fwriter = null;
+	BufferedWriter buffer = null;
+		
+	File file = new File("src\\hoadon.txt");
+		
+	try {
+		fwriter= new FileWriter(file);
+		buffer = new BufferedWriter(fwriter);
+		String line;
+		for (int i = 0; i < dsNhanVien.size(); i++) {
+                NhanVien nhanVien = dsNhanVien.get(i);
+                line = nhanVien.getMaNhanVien()+";"+nhanVien.getTenNhanVien()+";"+nhanVien.getNgayVaoLam()+";"+
+                        nhanVien.getSoNgayNghi();
+                
+                buffer.write(line);
+                buffer.newLine();
+            }
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(buffer != null)	buffer.close();
+				if(fwriter != null) fwriter.close();
 			} catch (Exception e2) {
 			}
 		}
