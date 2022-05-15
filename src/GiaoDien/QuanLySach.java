@@ -10,6 +10,7 @@ import CSDL.Sach;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Vector;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class QuanLySach extends javax.swing.JFrame {
 
-   DefaultTableModel model;
+   DefaultTableModel model = null;
    
    
    
@@ -29,7 +30,20 @@ public class QuanLySach extends javax.swing.JFrame {
         
         model = (DefaultTableModel) tableSach.getModel();
         
+        loadTable();
+        
+        
+    }
+    private void loadTable(){
+        for (int i = DataIO.dsSach.size() - 1 ; i >= DataIO.dsSach.size() / 2; i--) {
+            DataIO.dsSach.remove(i);
+        }
+        for(int i = tableSach.getRowCount() - 1; i>=0; i--){
+            model.removeRow(i);
+        }
         DataIO.loadSach();
+        
+        
         
         for (Sach sach : DataIO.dsSach) {
             Vector vecto = new Vector();
@@ -43,7 +57,6 @@ public class QuanLySach extends javax.swing.JFrame {
             model.addRow(vecto);
         }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,7 +68,7 @@ public class QuanLySach extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnQuayLai = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -85,8 +98,13 @@ public class QuanLySach extends javax.swing.JFrame {
         jLabel1.setToolTipText("");
         jLabel1.setRequestFocusEnabled(false);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/back.png"))); // NOI18N
-        jButton1.setText("Quay lai");
+        btnQuayLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/back.png"))); // NOI18N
+        btnQuayLai.setText("Quay lai");
+        btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnQuayLaiActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Tim kiem");
 
@@ -96,7 +114,7 @@ public class QuanLySach extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnQuayLai, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
@@ -111,7 +129,7 @@ public class QuanLySach extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
+                    .addComponent(btnQuayLai)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -344,6 +362,14 @@ public class QuanLySach extends javax.swing.JFrame {
         DataIO.writeSach();
     }//GEN-LAST:event_btnXoaActionPerformed
 
+    private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
+        NhanVienMenu menu = new NhanVienMenu();
+        menu.pack();
+        menu.setVisible(true);
+
+        this.dispose();
+    }//GEN-LAST:event_btnQuayLaiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -381,9 +407,9 @@ public class QuanLySach extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCapNhat;
+    private javax.swing.JButton btnQuayLai;
     private javax.swing.JButton btnThem;
     private javax.swing.JButton btnXoa;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

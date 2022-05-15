@@ -11,7 +11,6 @@ package CSDL;
 public class NguoiMua {
     private String maNguoiMua;
     private String tenNguoiMua;
-    private String taiKhoan;
     private String soDienThoai;
     private String diaChi;
     private String email;
@@ -19,10 +18,9 @@ public class NguoiMua {
     public NguoiMua() {
     }
 
-    public NguoiMua(String maNguoiMua, String tenNguoiMua, String taiKhoan, String soDienThoai, String diaChi, String email) {
+    public NguoiMua(String maNguoiMua, String tenNguoiMua, String soDienThoai, String diaChi, String email) {
         this.maNguoiMua = maNguoiMua;
         this.tenNguoiMua = tenNguoiMua;
-        this.taiKhoan = taiKhoan;
         this.soDienThoai = soDienThoai;
         this.diaChi = diaChi;
         this.email = email;
@@ -44,13 +42,7 @@ public class NguoiMua {
         this.tenNguoiMua = tenNguoiMua;
     }
 
-    public String getTaiKhoan() {
-        return taiKhoan;
-    }
-
-    public void setTaiKhoan(String taiKhoan) {
-        this.taiKhoan = taiKhoan;
-    }
+    
 
     public String getSoDienThoai() {
         return soDienThoai;

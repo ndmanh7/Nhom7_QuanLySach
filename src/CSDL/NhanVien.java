@@ -11,15 +11,17 @@ package CSDL;
 public class NhanVien {
     private String maNhanVien;
     private String tenNhanVien;
+    private String taiKhoan;
     private String ngayVaoLam;
     private int soNgayNghi;
 
     public NhanVien() {
     }
 
-    public NhanVien(String maNhanVien, String tenNhanVien, String ngayVaoLam, int soNgayNghi) {
+    public NhanVien(String maNhanVien, String tenNhanVien,String taiKhoan, String ngayVaoLam, int soNgayNghi) {
         this.maNhanVien = maNhanVien;
         this.tenNhanVien = tenNhanVien;
+        this.taiKhoan = taiKhoan;
         this.ngayVaoLam = ngayVaoLam;
         this.soNgayNghi = soNgayNghi;
     }
@@ -38,6 +40,14 @@ public class NhanVien {
 
     public void setTenNhanVien(String tenNhanVien) {
         this.tenNhanVien = tenNhanVien;
+    }
+    
+    public String getTaiKhoan() {
+        return taiKhoan;
+    }
+
+    public void setTaiKhoan(String taiKhoan) {
+        this.taiKhoan = taiKhoan;
     }
 
     public String getNgayVaoLam() {

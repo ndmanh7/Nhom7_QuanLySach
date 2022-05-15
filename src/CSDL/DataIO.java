@@ -17,7 +17,7 @@ public class DataIO {
     public static ArrayList<HoaDon> dsHoaDon = new ArrayList<>();
     public static ArrayList<NguoiMua> dsNguoiMua = new ArrayList<>();
     public static ArrayList<NhanVien> dsNhanVien = new ArrayList<>();
-    
+    public static ArrayList<TaiKhoan> dsTaiKhoan = new ArrayList<>();
     
     public static void loadSach(){
         FileReader freader = null;
@@ -98,12 +98,11 @@ public class DataIO {
 			String parts[] = line.split(";");
 			String maNguoiMua = parts[0];
                         String tenNguoiMua = parts[1];
-                        String taiKhoan = parts[2];
-                        String soDienThoai = parts[3];
-                        String diaChi = parts[4];
-                        String email = parts[5];
+                        String soDienThoai = parts[2];
+                        String diaChi = parts[3];
+                        String email = parts[4];
 			
-                        NguoiMua nguoiMua = new NguoiMua(maNguoiMua,tenNguoiMua,taiKhoan,soDienThoai,diaChi,email);
+                        NguoiMua nguoiMua = new NguoiMua(maNguoiMua,tenNguoiMua,soDienThoai,diaChi,email);
                         dsNguoiMua.add(nguoiMua);
 			}
 		} catch (Exception e) {
@@ -129,7 +128,7 @@ public class DataIO {
 		String line;
 		for (int i = 0; i < dsNguoiMua.size(); i++) {
                 NguoiMua nguoiMua = dsNguoiMua.get(i);
-                line = nguoiMua.getMaNguoiMua()+";"+nguoiMua.getTenNguoiMua()+";"+nguoiMua.getTaiKhoan()+";"+
+                line = nguoiMua.getMaNguoiMua()+";"+nguoiMua.getTenNguoiMua()+";"+
                         nguoiMua.getSoDienThoai()+";"+nguoiMua.getDiaChi()+";"+nguoiMua.getEmail();
                 
                 buffer.write(line);
@@ -225,11 +224,12 @@ public class DataIO {
 			String parts[] = line.split(";");
 			String maNhanVien = parts[0];
                         String tenNhanVien = parts[1];
-                        String ngayVaoLam = parts[2];
-                        int soNgayNghi = Integer.parseInt(parts[3]);
+                        String taiKhoan = parts[2];
+                        String ngayVaoLam = parts[3];
+                        int soNgayNghi = Integer.parseInt(parts[4]);
                         
 			
-                        NhanVien nhanVien = new NhanVien(maNhanVien, tenNhanVien, ngayVaoLam, soNgayNghi);
+                        NhanVien nhanVien = new NhanVien(maNhanVien, tenNhanVien,taiKhoan, ngayVaoLam, soNgayNghi);
                         dsNhanVien.add(nhanVien);
 			}
 		} catch (Exception e) {
@@ -255,7 +255,7 @@ public class DataIO {
 		String line;
 		for (int i = 0; i < dsNhanVien.size(); i++) {
                 NhanVien nhanVien = dsNhanVien.get(i);
-                line = nhanVien.getMaNhanVien()+";"+nhanVien.getTenNhanVien()+";"+nhanVien.getNgayVaoLam()+";"+
+                line = nhanVien.getMaNhanVien()+";"+nhanVien.getTenNhanVien()+";"+nhanVien.getTaiKhoan()+";"+nhanVien.getNgayVaoLam()+";"+
                         nhanVien.getSoNgayNghi();
                 
                 buffer.write(line);
@@ -267,6 +267,37 @@ public class DataIO {
 			try {
 				if(buffer != null)	buffer.close();
 				if(fwriter != null) fwriter.close();
+			} catch (Exception e2) {
+			}
+		}
+    }
+    
+    public static void loadTaiKhoan(){
+        FileReader freader = null;
+	BufferedReader buffer = null;
+		
+	File file = new File("src\\taikhoan.txt");
+		
+	try {
+		freader = new FileReader(file);
+		buffer = new BufferedReader(freader);
+		String line;
+		while((line = buffer.readLine()) != null) {
+			if(line.startsWith("#")) continue;
+			String parts[] = line.split(";");
+			String taiKhoan = parts[0];
+                        String matKhau = parts[1];
+                        
+                        
+                        TaiKhoan taiKhoan1 = new TaiKhoan(taiKhoan,matKhau);
+			dsTaiKhoan.add(taiKhoan1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				if(buffer != null)	buffer.close();
+				if(freader != null) freader.close();
 			} catch (Exception e2) {
 			}
 		}
