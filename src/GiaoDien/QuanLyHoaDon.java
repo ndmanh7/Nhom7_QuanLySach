@@ -5,14 +5,17 @@
 package GiaoDien;
 
 import CSDL.DataIO;
+import static CSDL.DataIO.dsHoaDon;
 import static CSDL.DataIO.dsSach;
-import CSDL.NguoiMua;
+
+import CSDL.HoaDon;
 import CSDL.Sach;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Vector;
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -21,40 +24,41 @@ import javax.swing.table.TableRowSorter;
  *
  * @author ADMIN
  */
-public class QuanLyNguoiMua extends javax.swing.JFrame {
+public class QuanLyHoaDon extends javax.swing.JFrame {
 
    DefaultTableModel model = null;
    
    
    
    
-    public QuanLyNguoiMua() {
+    public QuanLyHoaDon() {
         initComponents();
         
-        model = (DefaultTableModel) tableNguoiMua.getModel();
+        model = (DefaultTableModel) tableHoaDon.getModel();
         
         loadTable();
         
         
     }
     private void loadTable(){
-        for (int i = DataIO.dsNguoiMua.size() - 1 ; i >= DataIO.dsNguoiMua.size() / 2; i--) {
-            DataIO.dsNguoiMua.remove(i);
+        for (int i = DataIO.dsHoaDon.size() - 1 ; i >= DataIO.dsHoaDon.size() / 2; i--) {
+            DataIO.dsHoaDon.remove(i);
         }
-        for(int i = tableNguoiMua.getRowCount() - 1; i>=0; i--){
+        for(int i = tableHoaDon.getRowCount() - 1; i>=0; i--){
             model.removeRow(i);
         }
-        DataIO.loadNguoiMua();
+        DataIO.loadHoaDon();
         
         
         
-        for (NguoiMua nguoiMua : DataIO.dsNguoiMua) {
+        for (HoaDon hoaDon : dsHoaDon) {
             Vector vecto = new Vector();
-            vecto.add(nguoiMua.getMaNguoiMua());
-            vecto.add(nguoiMua.getTenNguoiMua());
-            vecto.add(nguoiMua.getSoDienThoai());
-            vecto.add(nguoiMua.getDiaChi());
-            vecto.add(nguoiMua.getEmail());
+            vecto.add(hoaDon.getMaHoaDon());
+            vecto.add(hoaDon.getMaNguoiMua());
+            vecto.add(hoaDon.getMaSach());
+            vecto.add(hoaDon.getNgayMua());
+            vecto.add(hoaDon.getSoLuongMua());
+            vecto.add(hoaDon.getThanhTien());
             
             
             model.addRow(vecto);
@@ -75,17 +79,17 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
         txtTimKiem = new javax.swing.JTextField();
         btnTimKiem = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tableNguoiMua = new javax.swing.JTable();
+        tableHoaDon = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
-        txtMaNguoiMua = new javax.swing.JTextField();
+        txtMaHoaDon = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtTenNguoiMua = new javax.swing.JTextField();
+        txtMaNguoiMua = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        txtSoDienThoai = new javax.swing.JTextField();
+        txtMaSach = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtDiaChi = new javax.swing.JTextField();
+        txtNgayMua = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
+        txtSoLuongMua = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         btnCapNhat = new javax.swing.JButton();
         btnXoa = new javax.swing.JButton();
@@ -95,7 +99,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Quan ly nguoi mua");
+        jLabel1.setText("Hoa Don");
         jLabel1.setToolTipText("");
         jLabel1.setRequestFocusEnabled(false);
 
@@ -147,49 +151,52 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        tableNguoiMua.setModel(new javax.swing.table.DefaultTableModel(
+        tableHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Ma nguoi mua", "Ten nguoi mua", "So dien thoai", "Dia chi", "Email"
+                "Ma hoa don", "Ma nguoi mua", "Ma sach", "Ngay mua", "So luong mua", "Thanh tien"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        tableNguoiMua.addMouseListener(new java.awt.event.MouseAdapter() {
+        tableHoaDon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tableNguoiMuaMouseClicked(evt);
+                tableHoaDonMouseClicked(evt);
             }
         });
-        tableNguoiMua.addKeyListener(new java.awt.event.KeyAdapter() {
+        tableHoaDon.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                tableNguoiMuaKeyReleased(evt);
+                tableHoaDonKeyReleased(evt);
             }
         });
-        jScrollPane1.setViewportView(tableNguoiMua);
+        jScrollPane1.setViewportView(tableHoaDon);
 
-        jLabel2.setText("Ma nguoi mua");
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel2.setText("Ma hoa don");
 
-        jLabel3.setText("Ten nguoi mua");
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("Ma nguoi mua");
 
-        jLabel4.setText("So dien thoai");
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("Ma sach");
 
-        jLabel5.setText("Dia chi");
+        jLabel5.setText("Ngay mua");
 
-        txtDiaChi.addActionListener(new java.awt.event.ActionListener() {
+        txtNgayMua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDiaChiActionPerformed(evt);
+                txtNgayMuaActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Email");
+        jLabel6.setText("So luong mua");
 
         btnCapNhat.setText("Cap nhat");
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
@@ -251,11 +258,11 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtMaNguoiMua, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                    .addComponent(txtTenNguoiMua)
-                    .addComponent(txtSoDienThoai)
-                    .addComponent(txtDiaChi)
-                    .addComponent(txtEmail))
+                    .addComponent(txtMaHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
+                    .addComponent(txtMaNguoiMua)
+                    .addComponent(txtMaSach)
+                    .addComponent(txtNgayMua)
+                    .addComponent(txtSoLuongMua))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -270,23 +277,23 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtMaNguoiMua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtMaHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(txtTenNguoiMua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtMaNguoiMua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtSoDienThoai, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtMaSach, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(16, 16, 16)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(txtDiaChi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNgayMua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSoLuongMua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -294,83 +301,122 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtDiaChiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDiaChiActionPerformed
+    private void txtNgayMuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNgayMuaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDiaChiActionPerformed
+    }//GEN-LAST:event_txtNgayMuaActionPerformed
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
-        NguoiMua nguoiMua = new NguoiMua();
-        nguoiMua.setMaNguoiMua(txtMaNguoiMua.getText());
-        nguoiMua.setTenNguoiMua(txtTenNguoiMua.getText());
-        nguoiMua.setSoDienThoai(txtSoDienThoai.getText());
-        nguoiMua.setDiaChi(txtDiaChi.getText());
-        nguoiMua.setEmail(txtEmail.getText());
+        HoaDon hoaDon = new HoaDon();
+        hoaDon.setMaHoaDon(txtMaHoaDon.getText()); 
+        hoaDon.setMaNguoiMua(txtMaNguoiMua.getText());
+        hoaDon.setMaSach(txtMaSach.getText());
+        hoaDon.setNgayMua(txtNgayMua.getText());
+        hoaDon.setSoLuongMua(Integer.parseInt(txtSoLuongMua.getText()));
         
+        DataIO.loadSach();
+        int check = 0, i = 0;
+        for (Sach sach : dsSach) {
+            if(sach.getMaSach().equals(txtMaSach.getText())){
+                i = dsSach.indexOf(sach);
+                check++;
+            }
+        }
         
-        DataIO.dsNguoiMua.add(nguoiMua);
+        if(check != 0){
+            Sach sach = dsSach.get(i);
+            hoaDon.setThanhTien(hoaDon.getSoLuongMua()*sach.getDonGia());
+            DataIO.dsHoaDon.add(hoaDon);
         
-        NguoiMua nguoiMua1 = DataIO.dsNguoiMua.get(DataIO.dsNguoiMua.size() - 1);
+        HoaDon hoaDon1 = DataIO.dsHoaDon.get(DataIO.dsHoaDon.size() - 1);
         model.addRow(new Object[]{
-            nguoiMua1.getMaNguoiMua(),nguoiMua1.getTenNguoiMua(),nguoiMua1.getSoDienThoai(),
-            nguoiMua1.getDiaChi(),nguoiMua1.getEmail()
+            hoaDon1.getMaHoaDon(),hoaDon1.getMaNguoiMua(),hoaDon1.getMaSach(),
+            hoaDon1.getNgayMua(),hoaDon1.getSoLuongMua(),hoaDon1.getThanhTien()
         });
         
-        DataIO.writeNguoiMua();
+        DataIO.writeHoaDon();
+        }else{
+            JOptionPane.showMessageDialog(rootPane, "Khong ton tai sach nay!");
+        }
+        
+        
+        
+        
+        
     }//GEN-LAST:event_btnThemActionPerformed
 
-    private void tableNguoiMuaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableNguoiMuaKeyReleased
-        int i = tableNguoiMua.getSelectedRow();
+    private void tableHoaDonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tableHoaDonKeyReleased
+        int i = tableHoaDon.getSelectedRow();
         
         
-        txtMaNguoiMua.setText(model.getValueAt(i, 0).toString());
-        txtTenNguoiMua.setText(model.getValueAt(i, 1).toString());
-        txtSoDienThoai.setText(model.getValueAt(i, 2).toString());
-        txtDiaChi.setText(model.getValueAt(i, 3).toString());
-        txtEmail.setText(model.getValueAt(i, 4).toString());
-    }//GEN-LAST:event_tableNguoiMuaKeyReleased
+        txtMaHoaDon.setText(model.getValueAt(i, 0).toString());
+        txtMaNguoiMua.setText(model.getValueAt(i, 1).toString());
+        txtMaSach.setText(model.getValueAt(i, 2).toString());
+        txtNgayMua.setText(model.getValueAt(i, 3).toString());
+        txtSoLuongMua.setText(model.getValueAt(i, 4).toString());
+        
+    }//GEN-LAST:event_tableHoaDonKeyReleased
 
-    private void tableNguoiMuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableNguoiMuaMouseClicked
-        int i = tableNguoiMua.getSelectedRow();
+    private void tableHoaDonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableHoaDonMouseClicked
+        int i = tableHoaDon.getSelectedRow();
         
         
-        txtMaNguoiMua.setText(model.getValueAt(i, 0).toString());
-        txtTenNguoiMua.setText(model.getValueAt(i, 1).toString());
-        txtSoDienThoai.setText(model.getValueAt(i, 2).toString());
-        txtDiaChi.setText(model.getValueAt(i, 3).toString());
-        txtEmail.setText(model.getValueAt(i, 4).toString());
+        txtMaHoaDon.setText(model.getValueAt(i, 0).toString());
+        txtMaNguoiMua.setText(model.getValueAt(i, 1).toString());
+        txtMaSach.setText(model.getValueAt(i, 2).toString());
+        txtNgayMua.setText(model.getValueAt(i, 3).toString());
+        txtSoLuongMua.setText(model.getValueAt(i, 4).toString());
         
-    }//GEN-LAST:event_tableNguoiMuaMouseClicked
+        
+    }//GEN-LAST:event_tableHoaDonMouseClicked
 
     private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
-        int i = tableNguoiMua.getSelectedRow();
+        int i = tableHoaDon.getSelectedRow();
         
-        NguoiMua nguoiMua = new NguoiMua();
-        nguoiMua.setMaNguoiMua(txtMaNguoiMua.getText());
-        nguoiMua.setTenNguoiMua(txtTenNguoiMua.getText());
-        nguoiMua.setSoDienThoai(txtSoDienThoai.getText());
-        nguoiMua.setDiaChi(txtDiaChi.getText());
-        nguoiMua.setEmail(txtEmail.getText());
+        HoaDon hoaDon = new HoaDon();
+        hoaDon.setMaHoaDon(txtMaHoaDon.getText());
+        hoaDon.setMaNguoiMua(txtMaNguoiMua.getText());
+        hoaDon.setMaSach(txtMaSach.getText());
+        hoaDon.setNgayMua(txtNgayMua.getText());
+        hoaDon.setSoLuongMua(Integer.parseInt(txtSoLuongMua.getText()));
+        DataIO.loadSach();
+        int check1 = 0, i1 = 0;
+        for (Sach sach : dsSach) {
+            if(sach.getMaSach().equals(txtMaSach.getText())){
+                i1 = dsSach.indexOf(sach);
+                check1++;
+            }
+        }
+        
+        if(check1 != 0){
+            Sach sach = dsSach.get(i1);
+            hoaDon.setThanhTien(hoaDon.getSoLuongMua()*sach.getDonGia());
+            
+        }
         
         
-        DataIO.dsNguoiMua.set(i, nguoiMua);
         
-        model.setValueAt(nguoiMua.getMaNguoiMua(), i, 0);
-        model.setValueAt(nguoiMua.getTenNguoiMua(), i, 1);
-        model.setValueAt(nguoiMua.getSoDienThoai(), i, 2);
-        model.setValueAt(nguoiMua.getDiaChi(), i, 3);
-        model.setValueAt(nguoiMua.getEmail(), i, 4);
+        
+        
+        DataIO.dsHoaDon.set(i, hoaDon);
+        
+        model.setValueAt(hoaDon.getMaHoaDon(), i, 0);
+        model.setValueAt(hoaDon.getMaNguoiMua(), i, 1);
+        model.setValueAt(hoaDon.getMaSach(), i, 2);
+        model.setValueAt(hoaDon.getNgayMua(), i, 3);
+        model.setValueAt(hoaDon.getSoLuongMua(), i, 4);
+        model.setValueAt(hoaDon.getThanhTien(), i, 5);
        
         
-        DataIO.writeNguoiMua();
+        DataIO.writeHoaDon();
     }//GEN-LAST:event_btnCapNhatActionPerformed
 
     private void btnXoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaActionPerformed
-        int i = tableNguoiMua.getSelectedRow();
+        int i = tableHoaDon.getSelectedRow();
         
-        DataIO.dsNguoiMua.remove(i);
+        DataIO.dsHoaDon.remove(i);
         
         model.removeRow(i);
-        DataIO.writeNguoiMua();
+        DataIO.writeHoaDon();
     }//GEN-LAST:event_btnXoaActionPerformed
 
     private void btnQuayLaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuayLaiActionPerformed
@@ -388,7 +434,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
     private void btnTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemActionPerformed
         model.fireTableDataChanged();
         TableRowSorter timKiem = new TableRowSorter(model);
-        tableNguoiMua.setRowSorter(timKiem);
+        tableHoaDon.setRowSorter(timKiem);
         timKiem.setRowFilter(RowFilter.regexFilter(txtTimKiem.getText()));
     }//GEN-LAST:event_btnTimKiemActionPerformed
 
@@ -409,14 +455,22 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNguoiMua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNguoiMua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNguoiMua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(QuanLyNguoiMua.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(QuanLyHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -429,7 +483,7 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new QuanLyNguoiMua().setVisible(true);
+                new QuanLyHoaDon().setVisible(true);
             }
         });
     }
@@ -449,12 +503,12 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tableNguoiMua;
-    private javax.swing.JTextField txtDiaChi;
-    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTable tableHoaDon;
+    private javax.swing.JTextField txtMaHoaDon;
     private javax.swing.JTextField txtMaNguoiMua;
-    private javax.swing.JTextField txtSoDienThoai;
-    private javax.swing.JTextField txtTenNguoiMua;
+    private javax.swing.JTextField txtMaSach;
+    private javax.swing.JTextField txtNgayMua;
+    private javax.swing.JTextField txtSoLuongMua;
     private javax.swing.JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 }
