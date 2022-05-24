@@ -121,6 +121,11 @@ public class DangNhap extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Tai khoan khong ton tai!");
         }
         
+        if(txtTaiKhoan.getText().equals("admin") && txtMatKhau.getText().equals("admin")){
+            new Admin().setVisible(true);
+            this.dispose();
+        }
+        
     }//GEN-LAST:event_btnDangNhapActionPerformed
 
     /**
