@@ -313,6 +313,10 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         hoaDon.setNgayMua(txtNgayMua.getText());
         hoaDon.setSoLuongMua(Integer.parseInt(txtSoLuongMua.getText()));
         
+        
+        for (int j = DataIO.dsSach.size() - 1 ; j >= DataIO.dsSach.size() / 2; j--) {
+            DataIO.dsSach.remove(j);
+        }
         DataIO.loadSach();
         int check = 0, i = 0;
         for (Sach sach : dsSach) {
@@ -324,6 +328,8 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         
         if(check != 0){
             Sach sach = dsSach.get(i);
+            sach.setSoLuongCon(sach.getSoLuongCon() - hoaDon.getSoLuongMua());
+            dsSach.set(i, sach);
             hoaDon.setThanhTien(hoaDon.getSoLuongMua()*sach.getDonGia());
             DataIO.dsHoaDon.add(hoaDon);
         
@@ -332,8 +338,8 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
             hoaDon1.getMaHoaDon(),hoaDon1.getMaNguoiMua(),hoaDon1.getMaSach(),
             hoaDon1.getNgayMua(),hoaDon1.getSoLuongMua(),hoaDon1.getThanhTien()
         });
-        
         DataIO.writeHoaDon();
+        DataIO.writeSach();
         }else{
             JOptionPane.showMessageDialog(rootPane, "Khong ton tai sach nay!");
         }
@@ -423,7 +429,6 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         NhanVienMenu menu = new NhanVienMenu();
         menu.pack();
         menu.setVisible(true);
-
         this.dispose();
     }//GEN-LAST:event_btnQuayLaiActionPerformed
 

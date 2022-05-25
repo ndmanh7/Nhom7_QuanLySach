@@ -1,3 +1,2 @@
-s002;Ngu van;GD;Kim Dong;10;20000;null
-s001;Toan 2;GD;Kim Dong;10;20000;null
-
+s001;1;1;1;2;10000;null
+s002;2;2;2;8;100000;null

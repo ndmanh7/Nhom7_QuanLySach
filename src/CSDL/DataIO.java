@@ -83,6 +83,8 @@ public class DataIO {
 		}
     }
     
+    
+    
     public static void loadNguoiMua(){
         FileReader freader = null;
 	BufferedReader buffer = null;
