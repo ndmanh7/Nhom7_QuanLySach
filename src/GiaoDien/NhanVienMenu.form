@@ -27,7 +27,11 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" pref="213" max="-2" attributes="0"/>
+<<<<<<< HEAD
               <EmptySpace pref="172" max="32767" attributes="0"/>
+=======
+              <EmptySpace pref="169" max="32767" attributes="0"/>
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btnQuanLyNguoiMua" max="32767" attributes="0"/>
                   <Component id="btnHoaDon" alignment="0" max="32767" attributes="0"/>
@@ -94,7 +98,11 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/GiaoDien/logout.png"/>
             </Property>
+<<<<<<< HEAD
             <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#xe2;&#x301;t"/>
+=======
+            <Property name="text" type="java.lang.String" value="&#x110;&#x103;ng xu&#x1ea5;t"/>
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDangXuatActionPerformed"/>
@@ -117,7 +125,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQuanLySach">
       <Properties>
+<<<<<<< HEAD
         <Property name="text" type="java.lang.String" value="Qua&#x309;n li&#x301; sa&#x301;ch"/>
+=======
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; s&#xe1;ch"/>
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuanLySachActionPerformed"/>
@@ -125,7 +137,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnQuanLyNguoiMua">
       <Properties>
+<<<<<<< HEAD
         <Property name="text" type="java.lang.String" value="Qua&#x309;n li&#x301; ng&#x1b0;&#x1a1;&#x300;i mua"/>
+=======
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; ng&#x1b0;&#x1edd;i mua"/>
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnQuanLyNguoiMuaActionPerformed"/>
@@ -133,7 +149,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnHoaDon">
       <Properties>
+<<<<<<< HEAD
         <Property name="text" type="java.lang.String" value="Qua&#x309;n li&#x301; ho&#x301;a &#x111;&#x1a1;n"/>
+=======
+        <Property name="text" type="java.lang.String" value="Qu&#x1ea3;n l&#xfd; h&#xf3;a &#x111;&#x1a1;n"/>
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHoaDonActionPerformed"/>

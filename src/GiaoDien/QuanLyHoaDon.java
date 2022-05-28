@@ -99,12 +99,16 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+<<<<<<< HEAD
         jLabel1.setText("HÓA ĐƠN");
+=======
+        jLabel1.setText("Hóa đơn");
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
         jLabel1.setToolTipText("");
         jLabel1.setRequestFocusEnabled(false);
 
         btnQuayLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/back.png"))); // NOI18N
-        btnQuayLai.setText("Quay lai");
+        btnQuayLai.setText("Quay lại");
         btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuayLaiActionPerformed(evt);
@@ -117,7 +121,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         btnTimKiem.setText("Tìm kiếm");
+=======
+        btnTimKiem.setText("Tìm kiếm");
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
         btnTimKiem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTimKiemActionPerformed(evt);
@@ -156,7 +164,11 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
 
             },
             new String [] {
+<<<<<<< HEAD
                 "Mã hóa đơn", "Mã người mua", "Mã sách", "Ngày mua", "Số lượng mua", "Thành  tiền"
+=======
+                "Mã hóa đơn", "Mã người mua", "Mã sách", "Ngày mua", "Số lượng mua", "Thành tiền"
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -180,6 +192,7 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tableHoaDon);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+<<<<<<< HEAD
         jLabel2.setText("Mã hóa đơn");
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -189,6 +202,17 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
         jLabel4.setText("Mã sách");
 
         jLabel5.setText("Ngày mua");
+=======
+        jLabel2.setText("Mã hóa đơn");
+
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("Mã người mua");
+
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel4.setText("Mã sách");
+
+        jLabel5.setText("Ngày mua");
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
 
         txtNgayMua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,9 +220,15 @@ public class QuanLyHoaDon extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jLabel6.setText("Số lượng mua");
 
         btnCapNhat.setText("Cập nhật");
+=======
+        jLabel6.setText("Số lượng mua");
+
+        btnCapNhat.setText("Cập nhật");
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
         btnCapNhat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCapNhatActionPerformed(evt);

@@ -94,7 +94,11 @@ public class Admin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/logout.png"))); // NOI18N
+<<<<<<< HEAD
         btnDangXuat.setText("Đăng xuất");
+=======
+        btnDangXuat.setText("Đăng xuất");
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
         btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDangXuatActionPerformed(evt);
@@ -409,8 +413,9 @@ public class Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
-        new DangNhap().setVisible(true);
+         new DangNhap().setVisible(true);
         this.dispose();
+        //abc
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
     private void txtTimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTimKiemActionPerformed

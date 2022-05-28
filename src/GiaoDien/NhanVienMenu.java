@@ -39,7 +39,11 @@ public class NhanVienMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(102, 255, 255));
 
         btnDangXuat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/logout.png"))); // NOI18N
+<<<<<<< HEAD
         btnDangXuat.setText("Đăng xuất");
+=======
+        btnDangXuat.setText("Đăng xuất");
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
         btnDangXuat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDangXuatActionPerformed(evt);
@@ -72,21 +76,33 @@ public class NhanVienMenu extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         btnQuanLySach.setText("Quản lí sách");
+=======
+        btnQuanLySach.setText("Quản lý sách");
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
         btnQuanLySach.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuanLySachActionPerformed(evt);
             }
         });
 
+<<<<<<< HEAD
         btnQuanLyNguoiMua.setText("Quản lí người mua");
+=======
+        btnQuanLyNguoiMua.setText("Quản lý người mua");
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
         btnQuanLyNguoiMua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuanLyNguoiMuaActionPerformed(evt);
             }
         });
 
+<<<<<<< HEAD
         btnHoaDon.setText("Quản lí hóa đơn");
+=======
+        btnHoaDon.setText("Quản lý hóa đơn");
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
         btnHoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnHoaDonActionPerformed(evt);
@@ -101,7 +117,11 @@ public class NhanVienMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(53, 53, 53)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 172, Short.MAX_VALUE)
+=======
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+>>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnQuanLyNguoiMua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnHoaDon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
