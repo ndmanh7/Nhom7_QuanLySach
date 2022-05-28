@@ -1,2 +1,3 @@
-s001;1;1;1;2;10000;null
-s002;2;2;2;8;100000;null
+s002;Toán hình ;Sách giáo dục;Nxb giáo dục;120;20000;null
+s004;Ngữ văn 2;sách giáo dục;nxb gd;120;15000;null
+s001;Lịch sử đảng;Sách giáo dục;ko biết;120;12000;null
