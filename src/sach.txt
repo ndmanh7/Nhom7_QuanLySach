@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+s002;Toán hình ;Sách giáo dục;Nxb giáo dục;120;20000;null
+s004;Ngữ văn 2;sách giáo dục;nxb gd;120;15000;null
+s001;Lịch sử đảng;Sách giáo dục;ko biết;120;12000;null
+
+=======
 s001;1;1;1;2;10000;null
 <<<<<<< HEAD
 s002;2;2;2;3;100000;null
@@ -6,3 +12,4 @@ s003;Sói và bầy cừu;3;Kim Đồng;10;50000;null
 s002;2;2;2;7;100000;null
 s003;2;2;2;6;100000;null
 >>>>>>> 852af5adf8713b881522410ce8f8201db2776fb1
+>>>>>>> 1bb6f1b1e5fca4d24dc7f9f4d9cb28aa5eea839a
