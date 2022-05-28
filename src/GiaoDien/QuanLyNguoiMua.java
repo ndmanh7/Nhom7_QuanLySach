@@ -95,12 +95,12 @@ public class QuanLyNguoiMua extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Quan ly nguoi mua");
+        jLabel1.setText("Quan Ly Nguoi Mua");
         jLabel1.setToolTipText("");
         jLabel1.setRequestFocusEnabled(false);
 
         btnQuayLai.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GiaoDien/back.png"))); // NOI18N
-        btnQuayLai.setText("Quay lai");
+        btnQuayLai.setText("Quay Lai");
         btnQuayLai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnQuayLaiActionPerformed(evt);
