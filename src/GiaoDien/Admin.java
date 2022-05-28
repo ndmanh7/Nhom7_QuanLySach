@@ -143,6 +143,7 @@ public class Admin extends javax.swing.JFrame {
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
         new DangNhap().setVisible(true);
         this.dispose();
+        //abc
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
     /**
